@@ -3,7 +3,6 @@
 namespace App\Application\Controllers;
 
 use App\Domain\Interfaces\Services\IImportFileService;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
