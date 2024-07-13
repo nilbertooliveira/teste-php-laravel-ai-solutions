@@ -2,6 +2,7 @@
 
 namespace App\Infrastructure\Events;
 
+use App\Infrastructure\Database\Models\ImportedFile;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Foundation\Events\Dispatchable;
@@ -11,12 +12,14 @@ class JsonUploaded
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
+    private ImportedFile $importedFile;
+
     /**
      * Create a new event instance.
      */
-    public function __construct()
+    public function __construct(ImportedFile $importedFile)
     {
-        //
+        $this->importedFile = $importedFile;
     }
 
     /**
@@ -29,5 +32,13 @@ class JsonUploaded
         return [
             new PrivateChannel('channel-name'),
         ];
+    }
+
+    /**
+     * @return ImportedFile
+     */
+    public function getImportedFile(): ImportedFile
+    {
+        return $this->importedFile;
     }
 }

@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('imported_files', function (Blueprint $table) {
             $table->unique('file_name');
-            $table->unique('error_log_file_name');
+            $table->index('path');
         });
     }
 
@@ -24,7 +24,7 @@ return new class extends Migration
     {
         Schema::table('imported_files', function (Blueprint $table) {
             $table->dropUnique('imported_files_file_name_unique');
-            $table->dropUnique('imported_files_error_log_file_name_unique');
+            $table->dropIndex('imported_files_path_index');
         });
     }
 };

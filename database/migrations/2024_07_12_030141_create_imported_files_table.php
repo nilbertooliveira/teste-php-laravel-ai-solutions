@@ -13,10 +13,11 @@ return new class extends Migration {
         Schema::create('imported_files', function (Blueprint $table) {
             $table->id();
             $table->string('file_name')->comment('Nome unico do arquivo importado');
-            $table->enum('status', ['processing', 'success', 'error']);
-            $table->unsignedInteger('imported_lines')->comment('Número total de linhas processadas e importadas com sucesso do arquivo JSON.');
-            $table->string('error_log_file_name')->comment('Nome unico do arquivo de erros');
-            $table->unsignedInteger('lines_errors')->comment('Número total de linhas processadas e importadas com sucesso do arquivo JSON.');
+            $table->string('path')->comment('Diretorio do arquivo');
+            $table->string('disk')->comment('Unidade de armazenamento, seja local, publico, s3');
+            $table->enum('status', ['pending','processing', 'success', 'error'])->default('pending');
+            $table->unsignedInteger('imported_lines')->nullable()->comment('Número total de linhas processadas e importadas com sucesso do arquivo JSON.');
+            $table->unsignedInteger('lines_errors')->nullable()->comment('Número total de linhas processadas e importadas com sucesso do arquivo JSON.');
             $table->timestamps();
         });
     }
