@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-auto">
+            <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
