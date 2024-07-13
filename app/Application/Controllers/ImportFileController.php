@@ -35,7 +35,7 @@ class ImportFileController extends Controller
      */
     public function upload(Request $request): RedirectResponse
     {
-        $response = $this->fileImportService->uploadFile($request);
+        $this->fileImportService->uploadFile($request);
 
         return redirect()->back();
     }

@@ -46,7 +46,6 @@ class ImportFileService implements IImportFileService
                 'disk' => $this->getDisk()
             ]
         );
-
         return new ResponseService($model);
     }
 
@@ -72,7 +71,6 @@ class ImportFileService implements IImportFileService
                     'imported_lines' => count($jsonLines)
                 ]
             );
-
             return $jsonLines;
 
         } catch (\Throwable $e) {

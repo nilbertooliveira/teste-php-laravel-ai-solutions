@@ -13,7 +13,7 @@ OBS: Portas 80, 8081, 3306 e 6379 precisam estar liberadas.
 
 1. Clonar o repositório:
      ```
-    git clone https://github.com/nilbertooliveira/investidor-10-test.git
+    git clone https://github.com/nilbertooliveira/teste-php-laravel-ai-solutions.git
      ```
 
 2. Rodar o comando abaixo para fazer o build do projeto, pulling das images, criar rede externa e hosts:
