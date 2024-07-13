@@ -56,7 +56,7 @@ class ImportFileService implements IImportFileService
     public function readFileJson(ImportedFile $importedFile): array
     {
         try {
-            $importedFile->saveOrFail(['status' => Status::PROCESSING]);
+            $importedFile->saveOrFail(['status' => Status::PROCESSING->value]);
 
             $path = Storage::disk($this->getDisk())->path($this->getPath() . DIRECTORY_SEPARATOR . $importedFile->file_name);
             $jsonString = file_get_contents($path);
@@ -67,14 +67,14 @@ class ImportFileService implements IImportFileService
 
             $importedFile->saveOrFail(
                 [
-                    'status' => Status::SUCCESS,
+                    'status' => Status::SUCCESS->value,
                     'imported_lines' => count($jsonLines)
                 ]
             );
             return $jsonLines;
 
         } catch (\Throwable $e) {
-            $importedFile->save(['status' => Status::ERROR]);
+            $importedFile->save(['status' => Status::ERROR->value]);
             Log::error('ImportFileService::readFileJson', ['error' => $e->getMessage()]);
             return [];
         }
@@ -87,7 +87,6 @@ class ImportFileService implements IImportFileService
     {
         foreach ($jsonLines['documentos'] as $line) {
             $this->processLineJson($line);
-            Log::debug('readLineJson', [$line]);
         }
     }
 

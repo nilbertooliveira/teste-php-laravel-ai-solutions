@@ -1,5 +1,6 @@
 <?php
 
+use App\Application\Controllers\HomeController;
 use App\Application\Controllers\ImportFileController;
 use Illuminate\Support\Facades\Route;
 
@@ -20,11 +21,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [\App\Application\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::middleware('auth')
     ->group(function () {
-
         Route::get('/upload', [ImportFileController::class, 'uploadView'])->name('upload-view');
         Route::post('/upload', [ImportFileController::class, 'upload'])->name('upload');
     });

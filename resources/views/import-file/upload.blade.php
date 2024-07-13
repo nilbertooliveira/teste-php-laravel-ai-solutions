@@ -11,7 +11,6 @@
                             Upload
                         </button>
                     </div>
-
                     <table class="table table-striped">
                         <thead>
                         <tr>
@@ -25,7 +24,6 @@
                         </tr>
                         </thead>
                         <tbody>
-
                         @foreach($data as $model)
                             <tr>
                                 <td>{{$model->id}}</td>
@@ -39,9 +37,7 @@
                         @endforeach
                         </tbody>
                     </table>
-
                     @include('import-file.modal')
-
                     <div class="card-body">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">

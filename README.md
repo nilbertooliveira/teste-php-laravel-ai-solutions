@@ -37,8 +37,12 @@ OBS: Portas 80, 8081, 3306 e 6379 precisam estar liberadas.
     ```
    docker exec app php artisan test
     ```
+6. Executar jobs
+    ```
+   docker exec app php artisan horizon
+    ```
 
-6. Dados para teste:
+7. Dados para teste:
     ```
     Host: 54.198.116.11
     Email: administrator@test.com.br

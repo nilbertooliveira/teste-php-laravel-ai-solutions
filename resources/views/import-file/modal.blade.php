@@ -9,7 +9,6 @@
                         aria-label="Close"></button>
             </div>
             <div class="modal-body">
-
                 <form class="row g-10" action="{{route('upload')}}" method="post"
                       enctype="multipart/form-data">
                     @csrf
@@ -20,7 +19,6 @@
                         <button type="submit" class="btn btn-primary btn-block">Enviar</button>
                     </div>
                 </form>
-
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close

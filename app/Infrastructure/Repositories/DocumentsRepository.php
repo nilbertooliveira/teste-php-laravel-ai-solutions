@@ -5,6 +5,7 @@ namespace App\Infrastructure\Repositories;
 use App\Domain\Interfaces\Repositories\IDocumentsRepository;
 use App\Infrastructure\Database\Models\Category;
 use App\Infrastructure\Database\Models\Document;
+use Illuminate\Support\Facades\Log;
 
 class DocumentsRepository implements IDocumentsRepository
 {
@@ -27,13 +28,18 @@ class DocumentsRepository implements IDocumentsRepository
      */
     public function store(array $data): Document
     {
-        $category = $this->category->where('name', '=', $data['categoria'])->firstOrFail();
+        try {
+            $category = $this->category->where('name', '=', $data['categoria'])->firstOrFail();
 
-        $documents = [
-            'category_id' => $category->id,
-            'title' => $data['titulo'],
-            'contents' => $data['conteúdo']
-        ];
-        return $this->document->create($documents);
+            $documents = [
+                'category_id' => $category->id,
+                'title' => $data['titulo'],
+                'contents' => $data['conteúdo']
+            ];
+            return $this->document->create($documents);
+        } catch (\Throwable $e) {
+            Log::error('DocumentsRepository::store', ['error' => $e->getMessage()]);
+            throw new \Exception();
+        }
     }
 }
