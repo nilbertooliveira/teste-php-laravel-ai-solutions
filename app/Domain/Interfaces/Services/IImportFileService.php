@@ -15,4 +15,6 @@ interface IImportFileService
     public function readFileJson(ImportedFile $importedFile);
 
     public function processLineJson(array $line);
+
+    public function listErrors(): ResponseService;
 }

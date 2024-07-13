@@ -12,4 +12,6 @@ interface IImportFilesRepository
     public function store(array $data): ImportedFile;
 
     public function update(array $data): bool;
+
+    public function listErrors(): Collection;
 }

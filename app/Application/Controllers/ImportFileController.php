@@ -24,9 +24,11 @@ class ImportFileController extends Controller
      */
     public function uploadView(): View
     {
+        $errors = $this->fileImportService->listErrors();
+
         $response = $this->fileImportService->list();
 
-        return view('import-file.upload', ['data' => $response->getData()]);
+        return view('import-file.upload', ['data' => $response->getData(),  'errors' => $errors->getData()]);
     }
 
     /**

@@ -10,6 +10,10 @@
                                 data-bs-target="#exampleModal">
                             Upload
                         </button>
+                        <button type="button" class="btn btn-secondary" data-bs-toggle="modal"
+                                data-bs-target="#modalError">
+                            Erros
+                        </button>
                     </div>
                     <table class="table table-striped">
                         <thead>
@@ -37,7 +41,8 @@
                         @endforeach
                         </tbody>
                     </table>
-                    @include('import-file.modal')
+                    @include('import-file.modal-upload')
+                    @include('import-file.modal-error')
                     <div class="card-body">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">

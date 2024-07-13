@@ -41,6 +41,8 @@ OBS: Portas 80, 8081, 3306 e 6379 precisam estar liberadas.
     ```
    docker exec app php artisan horizon
     ```
+   O titulo do documento está como único e  importando a segunda vez os erros vão para failed_jobs intencionalmente
+
 
 7. Dados para teste:
     ```

@@ -115,6 +115,20 @@ class ImportFileService implements IImportFileService
     }
 
     /**
+     * @return ResponseService
+     */
+    public function listErrors(): ResponseService
+    {
+        try {
+            $result = $this->filesRepository->listErrors();
+
+            return new ResponseService($result);
+        } catch (\Throwable $e) {
+            return new ResponseService($e->getMessage(), false);
+        }
+    }
+
+    /**
      * @return string
      */
     public function getDisk(): string
