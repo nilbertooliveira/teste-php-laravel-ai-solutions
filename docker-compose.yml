@@ -47,7 +47,7 @@ services:
             app-network:
                 ipv4_address: 172.27.0.3
         cpus: 0.2
-        mem_limit: 100m
+        mem_limit: 300m
 
     db:
         image: bitnami/mysql
@@ -82,7 +82,7 @@ services:
             app-network:
                 ipv4_address: 172.27.0.98
         cpus: 0.2
-        mem_limit: 100m
+        mem_limit: 50m
 
     redis:
         image: 'bitnami/redis:latest'
