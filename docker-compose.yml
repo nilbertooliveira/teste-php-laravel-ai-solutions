@@ -24,7 +24,7 @@ services:
         networks:
             app-network:
                 ipv4_address: 172.27.0.2
-        cpus: 0.1
+        cpus: 0.2
         mem_limit: 100m
 
     webserver:
@@ -46,7 +46,7 @@ services:
         networks:
             app-network:
                 ipv4_address: 172.27.0.3
-        cpus: 0.1
+        cpus: 0.2
         mem_limit: 100m
 
     db:
@@ -65,7 +65,7 @@ services:
         networks:
             app-network:
                 ipv4_address: 172.27.0.5
-        cpus: 0.1
+        cpus: 0.2
         mem_limit: 100m
 
     nginx-proxy:
@@ -81,7 +81,7 @@ services:
         networks:
             app-network:
                 ipv4_address: 172.27.0.98
-        cpus: 0.1
+        cpus: 0.2
         mem_limit: 100m
 
     redis:
@@ -98,7 +98,7 @@ services:
                 ipv4_address: 172.27.0.90
         ports:
             - "6379:6379"
-        cpus: 0.1
+        cpus: 0.2
         mem_limit: 100m
 
 
