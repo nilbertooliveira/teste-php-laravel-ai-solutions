@@ -52,7 +52,7 @@ $@
 
 { # try
     echo "Criando rede docker externa"
-    sudo docker network create --gateway 172.26.0.1 --subnet 172.26.0.0/16 empresta-network 2>/dev/null
+    sudo docker network create --gateway 172.26.0.1 --subnet 172.26.0.0/16 app-network 2>/dev/null
 } || { # catch
     # save log for exception
     echo "Rede ja existe, seguindo...."
