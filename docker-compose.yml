@@ -21,11 +21,11 @@ services:
         volumes:
             - ./:/var/www
             - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
+        cpus: 0.2
+        mem_limit: 300m
         networks:
             app-network:
                 ipv4_address: 172.27.0.2
-        cpus: 0.2
-        mem_limit: 300m
 
     webserver:
         image: 'bitnami/nginx:latest'
@@ -43,15 +43,15 @@ services:
         extra_hosts:
             - host.docker.internal:host-gateway
             - front-app.local.com.br:host-gateway
+        cpus: 0.2
+        mem_limit: 100m
         networks:
             app-network:
                 ipv4_address: 172.27.0.3
-        cpus: 0.2
-        mem_limit: 100m
 
     db:
         image: bitnami/mysql
-        container_name: mysql
+        container_name: db
         restart: always
         environment:
             MYSQL_ROOT_PASSWORD: app
@@ -62,11 +62,11 @@ services:
             - mysql-data:/bitnami/mysql/data
         ports:
             - "3306:3306"
+        cpus: 0.2
+        mem_limit: 100m
         networks:
             app-network:
                 ipv4_address: 172.27.0.5
-        cpus: 0.2
-        mem_limit: 100m
 
     nginx-proxy:
         container_name: 'nginx-proxy'
@@ -78,11 +78,11 @@ services:
             - ./docker/nginx/nginx-proxy/conf.d/vhost.d:/etc/nginx/vhost.d/
         ports:
             - "80:80"
+        cpus: 0.2
+        mem_limit: 50m
         networks:
             app-network:
                 ipv4_address: 172.27.0.98
-        cpus: 0.2
-        mem_limit: 50m
 
     redis:
         image: 'bitnami/redis:latest'
@@ -93,13 +93,13 @@ services:
             - ALLOW_EMPTY_PASSWORD=yes
         volumes:
             - redis-data:/bitnami
+        cpus: 0.2
+        mem_limit: 100m
         networks:
             app-network:
                 ipv4_address: 172.27.0.90
         ports:
             - "6379:6379"
-        cpus: 0.2
-        mem_limit: 100m
 
 
 networks:
