@@ -23,6 +23,9 @@ services:
             - ./docker/php/local.ini:/usr/local/etc/php/conf.d/local.ini
         cpus: 0.2
         mem_limit: 300m
+        links:
+            - db
+            - redis
         networks:
             app-network:
                 ipv4_address: 172.27.0.2
@@ -45,6 +48,9 @@ services:
             - front-app.local.com.br:host-gateway
         cpus: 0.2
         mem_limit: 100m
+        links:
+            - db
+            - redis
         networks:
             app-network:
                 ipv4_address: 172.27.0.3
